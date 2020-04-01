@@ -21,9 +21,7 @@ public class CatalogService {
     @Autowired
     private ItemMapper itemMapper;
 
-    public List<Category> getCategoryList() {
-        return categoryMapper.getCategoryList();
-    }
+
 
     public Category getCategory(String categoryId) {
         return categoryMapper.getCategory(categoryId);
@@ -31,6 +29,14 @@ public class CatalogService {
 
     public Product getProduct(String productId) {
         return productMapper.getProduct(productId);
+    }
+
+    public Item getItem(String itemId){
+        return itemMapper.getItem(itemId);
+    }
+
+    public List<Category> getCategoryList() {
+        return categoryMapper.getCategoryList();
     }
 
     public List<Product> getProductListByCategory(String categoryId) {
@@ -45,14 +51,14 @@ public class CatalogService {
         return itemMapper.getItemListByProduct(productId);
     }
 
-    public Item getItem(String itemId){
-        return itemMapper.getItem(itemId);
-    }
 
-    public boolean isItemInStock(String itemId){
-        return itemMapper.getInventoryQuantity(itemId) > 0;
-    }
 
+//    public boolean isItemInStock(String itemId){
+//        return itemMapper.getInventoryQuantity(itemId) > 0;
+//    }
+
+
+    //用于拆分商品描述的图片与文本
     public void processProductDescription(Product product) {
         String[] temp = product.getDescription().split("\"");
         product.setDescriptionImage(temp[1]);

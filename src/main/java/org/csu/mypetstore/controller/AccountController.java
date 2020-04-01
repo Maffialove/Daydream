@@ -29,6 +29,8 @@ public class AccountController {
         return "account/login";
     }
 
+    //用户登录，检测输入的Username和Password是否能从数据库中得到，
+    // 若能则登陆成功，改变登陆状态，写入账户信息。
     @PostMapping("login")
     public String logIn(String username, String password, Model model){
         Account account = accountService.getAccount(username, password);
@@ -47,6 +49,7 @@ public class AccountController {
         }
     }
 
+    //用户登出，改变登陆状态，删除用户信息
     @GetMapping("logout")
     public String logout(Model model) {
         Account loginAccount = new Account();

@@ -17,6 +17,9 @@ import java.util.List;
 @RequestMapping("/catalog/")
 public class CatalogController {
 
+    //商品展示模块，包含Category，Product，Item三种级别的展示
+    //包含搜索功能，通过Product name搜索
+
     @Autowired
     private CatalogService catalogService;
 

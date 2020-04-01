@@ -8,6 +8,7 @@ public interface AccountMapper {
 
     Account getAccountByUsername(String username);
 
+    //用于验证登陆信息
     Account getAccountByUsernameAndPassword(Account account);
 
     void insertAccount(Account account);
