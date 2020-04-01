@@ -53,4 +53,16 @@ public class CatalogService {
         return itemMapper.getInventoryQuantity(itemId) > 0;
     }
 
+    public void processProductDescription(Product product) {
+        String[] temp = product.getDescription().split("\"");
+        product.setDescriptionImage(temp[1]);
+        product.setDescriptionText(temp[2].substring(1));
+    }
+
+    public void processProductDescription(List<Product> productList) {
+        for (Product product : productList) {
+            processProductDescription(product);
+        }
+    }
+
 }

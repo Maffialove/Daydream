@@ -9,7 +9,7 @@
 <header th:replace="common/top"></header>
 <div id="Content">
     <div id="BackLink">
-        <a href="/catalog/index">Return to Main Menu</a>
+        <a href="/catalog/view">Return to Main Menu</a>
     </div>
 
     <div id="Catalog">
@@ -29,7 +29,7 @@
                 <td>
                     <b>
                         <a th:href="'/catalog/viewProduct?productId='+${product.productId}" >
-                            <font color="BLACK" th:text="${product.productId}">Product ID</font>
+                            <span th:text="${product.productId}" style="color: BLACK; ">Product ID</span>
                         </a>
                     </b>
                 </td>
