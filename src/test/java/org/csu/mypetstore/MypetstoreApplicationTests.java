@@ -1,6 +1,7 @@
 package org.csu.mypetstore;
 
 import org.csu.mypetstore.domain.Category;
+import org.csu.mypetstore.domain.Item;
 import org.csu.mypetstore.domain.Product;
 import org.csu.mypetstore.service.CatalogService;
 import org.junit.jupiter.api.Test;
@@ -15,21 +16,14 @@ import java.util.List;
 class MypetstoreApplicationTests {
 
     @Autowired
-    CatalogService catalogService;
+    private CatalogService catalogService;
+
 
     @Test
     void contextLoads() {
     }
 
-    @Test
-    void testCategory(){
-        Category category = catalogService.getCategory("BIRDS");
-        System.out.println(category.getCategoryId());
-    }
-
-    @Test
-    void testProduct(){
-        List<Product> productList = catalogService.getProductListByCategory("BIRDS");
-        System.out.println(productList.size());
-    }
 }
+
+
+

@@ -7,10 +7,20 @@
 </head>
 <body>
     <footer th:fragment="footer">
-        <div id="PoweredBy">&nbsp<a href="http://www.csu.edu.cn">www.csu.edu.cn</a>
-            &nbsp<a href="viewLog2">viewLog</a>
-        </div>
-        <div id="Banner">
+        <div id="Footer">
+
+            <div id="PoweredBy">
+                &nbsp<a href="www.csu.edu.cn">Central South University</a>
+            </div>
+
+            <div id="Banner">
+                <!-- Banner Name -->
+                <label th:if="(${session.account} != null) and (${session.authenticated})">
+                    <img th:if="${session.account.bannerOption}"
+                         th:src="${#strings.arraySplit(session.account.bannerName,'&quot;')[1]}">
+                </label>
+            </div>
+
         </div>
     </footer>
 </body>

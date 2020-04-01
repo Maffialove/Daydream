@@ -7,8 +7,10 @@ import java.util.List;
 
 @Repository
 public interface ProductMapper {
-    //
+
     List<Product> getProductListByCategory(String categoryId);
 
     Product getProduct(String productId);
+
+    List<Product> searchProductList(String keywords);
 }

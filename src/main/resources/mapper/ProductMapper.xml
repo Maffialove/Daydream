@@ -3,26 +3,36 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.csu.mypetstore.persistence.ProductMapper">
+    <cache/>
 
     <select id="getProduct" parameterType="string" resultType="Product">
-    SELECT
-      PRODUCTID,
-      NAME,
-      DESCN as description,
-      CATEGORY as categoryId
-    FROM PRODUCT
-    WHERE PRODUCTID = #{productId}
-  </select>
+        SELECT
+            PRODUCTID,
+            NAME,
+            DESCN as description,
+            CATEGORY as categoryId
+        FROM PRODUCT
+        WHERE PRODUCTID = #{productId}
+    </select>
 
     <select id="getProductListByCategory" parameterType="string" resultType="Product">
-    SELECT
-      PRODUCTID,
-      NAME,
-      DESCN as description,
-      CATEGORY as categoryId
-    FROM PRODUCT
-    WHERE CATEGORY = #{value}
-  </select>
+        SELECT
+            PRODUCTID,
+            NAME,
+            DESCN as description,
+            CATEGORY as categoryId
+        FROM PRODUCT
+        WHERE CATEGORY = #{value}
+    </select>
 
+    <select id="searchProductList" parameterType="string" resultType="Product">
+        SELECT
+            PRODUCTID,
+            NAME,
+            DESCN as description,
+            CATEGORY as categoryId
+        FROM PRODUCT
+        WHERE lower(name) like #{value}
+    </select>
 
 </mapper>

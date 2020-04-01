@@ -1,6 +1,11 @@
 package org.csu.mypetstore.domain;
 
-public class Category {
+import java.io.Serializable;
+
+public class Category implements Serializable {
+
+    private static final long serialVersionUID = 3992469837058393712L;
+
     private String categoryId;
     private String name;
     private String description;
@@ -10,7 +15,7 @@ public class Category {
     }
 
     public void setCategoryId(String categoryId) {
-        this.categoryId = categoryId;
+        this.categoryId = categoryId.trim();
     }
 
     public String getName() {
@@ -28,4 +33,9 @@ public class Category {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String toString() {
+        return getCategoryId();
+    }
+
 }
