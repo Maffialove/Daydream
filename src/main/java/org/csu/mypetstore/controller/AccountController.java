@@ -115,7 +115,7 @@ public class AccountController {
         }
     }
 
-    //注册用户
+    //注册账户
     @GetMapping("newAccountForm")
     public String newAccountForm(Model model){
         model.addAttribute("newAccount",new Account());

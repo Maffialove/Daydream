@@ -51,6 +51,9 @@ public class CatalogService {
         return itemMapper.getItemListByProduct(productId);
     }
 
+    public boolean isItemInStock(String itemId) {
+        return itemMapper.getInventoryQuantity(itemId) > 0;
+    }
 
 
 //    public boolean isItemInStock(String itemId){
