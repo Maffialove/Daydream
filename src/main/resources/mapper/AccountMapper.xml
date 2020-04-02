@@ -93,13 +93,13 @@
         VALUES (#{languagePreference}, #{favouriteCategoryId}, #{username})
     </insert>
 
-    <update id="updateSignOn" parameterType="Account">
+    <update id="updateLogin" parameterType="Account">
         UPDATE SIGNON SET
             PASSWORD = #{password}
         WHERE USERNAME = #{username}
     </update>
 
-    <insert id="insertSignOn" parameterType="Account">
+    <insert id="insertLogin" parameterType="Account">
         INSERT INTO SIGNON
             (PASSWORD,USERNAME)
         VALUES (#{password}, #{username})

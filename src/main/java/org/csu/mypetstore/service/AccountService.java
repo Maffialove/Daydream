@@ -23,4 +23,20 @@ public class AccountService {
         return accountMapper.getAccountByUsernameAndPassword(account);
     }
 
+    @Transactional
+    public void insertAccount(Account account){
+        accountMapper.insertAccount(account);
+        accountMapper.insertProfile(account);
+        accountMapper.insertLogin(account);
+    }
+
+    @Transactional
+    public void updateAccount(Account account){
+        accountMapper.updateAccount(account);
+        accountMapper.updateProfile(account);
+
+        if(account.getPassword() != null && account.getPassword().length() > 0){
+            accountMapper.updateLogin(account);
+        }
+    }
 }
