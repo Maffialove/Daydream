@@ -18,6 +18,7 @@ import java.util.Iterator;
 @Controller
 @SessionScope
 @RequestMapping("/cart/")
+@SessionAttributes("cart")
 public class CartController {
 
     @Autowired

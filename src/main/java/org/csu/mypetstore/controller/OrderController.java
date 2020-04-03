@@ -1,5 +1,6 @@
 package org.csu.mypetstore.controller;
 
+import org.apache.catalina.Session;
 import org.csu.mypetstore.domain.Account;
 import org.csu.mypetstore.domain.Cart;
 import org.csu.mypetstore.domain.LineItem;
@@ -99,8 +100,15 @@ public class OrderController {
         return "order/view_order";
     }
 
-    @PostMapping("/confirmShippingForm")
-    public String confirmShippingForm(HttpServletRequest request, String shipToFirstName, String shipToLastName, String shipAddress1, String shipAddress2, String shipCity, String shipState, String shipZip, String shipCountry){
+    @GetMapping("confirmShippingForm")
+    public String confirmShippingForm(){
+
+        return "order/confirm_order";
+    }
+
+
+    @PostMapping("/confirmShipping")
+    public String confirmShipping(HttpServletRequest request, String shipToFirstName, String shipToLastName, String shipAddress1, String shipAddress2, String shipCity, String shipState, String shipZip, String shipCountry){
         HttpSession httpSession = request.getSession();
         Order order=(Order)httpSession.getAttribute("order");
         order.setShipToFirstName(shipToFirstName);

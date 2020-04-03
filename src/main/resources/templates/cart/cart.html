@@ -58,15 +58,15 @@
                 </table>
             </form>
 
-            <a class="Button" th:if="${cart.numberOfItems > 0}"  href="/cart/checkOut">
+<!--            <a class="Button" th:if="${cart.numberOfItems > 0}"  href="/cart/checkOut">-->
+<!--                Proceed to Checkout-->
+<!--            </a>-->
+            <a class="Button" th:if="${cart.numberOfItems > 0} and ${session.authenticated}"  href="/cart/checkOut">
                 Proceed to Checkout
             </a>
-<!--            <a class="Button" th:if="${cart.numberOfItems > 0} and ${session.authenticated}"  href="/cart/checkOut">-->
-<!--                Proceed to Checkout-->
-<!--            </a>-->
-<!--            <a class="Button" th:if="${!session.authenticated}"  href="/account/loginFrom">-->
-<!--                Proceed to Checkout-->
-<!--            </a>-->
+            <a class="Button" th:if="${!session.authenticated}"  href="/account/loginFrom">
+                Proceed to Checkout
+            </a>
 
         </div>
         <div id="MyList" th:if="(${session.account} != null) and (${session.authenticated})">

@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
-
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +54,7 @@ public class AccountController {
     //用户登录，检测输入的Username和Password是否能从数据库中得到，
     // 若能则登陆成功，改变登陆状态，写入账户信息。
     @PostMapping("login")
-    public String login(String username, String password, Model model) {
+    public String login(String username, String password, Model model,HttpSession httpSession) {
         Account account = accountService.getAccount(username, password);
 
         if (account == null) {
